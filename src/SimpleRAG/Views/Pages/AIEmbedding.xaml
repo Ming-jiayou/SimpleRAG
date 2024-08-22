@@ -22,7 +22,7 @@
                     <StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <Button Content="问AI" Margin="10"
-					                Command=""></Button>
+					                Command="{Binding ViewModel.RAGReplyCommand}"></Button>
                             <ui:TextBox PlaceholderText="Index"
                                         VerticalAlignment="Center" 
                                         HorizontalAlignment="Center"
@@ -44,14 +44,12 @@
                 <Grid Grid.Column="2">
                     <StackPanel>
                         <StackPanel Orientation="Horizontal">
-                            <Button Content="AI回答" Margin="10"></Button>
-                            <Button Content="RAG回答" Margin="10"
-                          Command="{Binding ViewModel.RAGReplyCommand}"></Button>
+                            <Button Content="RAG回答" Margin="10"></Button>
                         </StackPanel>
                         <TextBox Height="300" 					 
-					 Margin="10"
-					 Text="{Binding ViewModel.ResponseText}"
-	                 TextWrapping="Wrap"></TextBox>
+					             Margin="10"
+					             Text="{Binding ViewModel.ResponseText}"
+	                             TextWrapping="Wrap"></TextBox>
                     </StackPanel>
                 </Grid>
             </Grid>

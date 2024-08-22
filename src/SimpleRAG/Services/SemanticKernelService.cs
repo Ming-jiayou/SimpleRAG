@@ -46,8 +46,8 @@ namespace SimpleRAG.Services
             var textMemory = await GetTextMemory();
             var index = queryModel.Index;
             var text = queryModel.Text;
-            var lines = TextChunker.SplitPlainTextLines(queryModel.Text, 20);
-            var paragraphs = TextChunker.SplitPlainTextParagraphs(lines, 100);
+            var lines = TextChunker.SplitPlainTextLines(queryModel.Text, TextChunkerOption.LinesToken);
+            var paragraphs = TextChunker.SplitPlainTextParagraphs(lines, TextChunkerOption.ParagraphsToken);
 
             foreach (var para in paragraphs)
             {
@@ -65,7 +65,7 @@ namespace SimpleRAG.Services
             string result = "";
             string information = "";
             await foreach (MemoryQueryResult memoryResult in memoryResults)
-            {
+            { 
                 information += memoryResult.Metadata.Text;
             }
             string skPrompt = """

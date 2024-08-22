@@ -18,9 +18,11 @@ namespace SimpleRAG.Models
             Uri uri1 = new Uri(chatUrl);
             string scheme1 = uri1.Scheme;
             string host1 = uri1.Host;
+            int port1 = uri1.Port;
             Uri uri2 = new Uri(embeddingUrl);
             string scheme2 = uri2.Scheme;
             string host2 = uri2.Host;
+            int port2 = uri2.Port;
             switch (request.RequestUri?.LocalPath)
             {
                 case "/v1/chat/completions":
@@ -29,6 +31,7 @@ namespace SimpleRAG.Models
                         // 这里是你要修改的 URL
                         Scheme = scheme1,
                         Host = host1,
+                        Port = port1,
                         Path = "v1/chat/completions",
                     };
                     request.RequestUri = uriBuilder.Uri;
@@ -40,6 +43,7 @@ namespace SimpleRAG.Models
                         // 这里是你要修改的 URL
                         Scheme = scheme2,
                         Host = host2,
+                        Port = port2,
                         Path = "v1/embeddings",
                     };
                     request.RequestUri = uriBuilder.Uri;
