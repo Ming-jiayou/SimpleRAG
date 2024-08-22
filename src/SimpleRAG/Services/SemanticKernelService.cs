@@ -61,7 +61,7 @@ namespace SimpleRAG.Services
             var textMemory = await GetTextMemory();
             var index = queryModel.Index;
             var text = queryModel.Text;
-            var memoryResults = textMemory.SearchAsync(index, text, limit: 3, minRelevanceScore: 0.5);
+            var memoryResults = textMemory.SearchAsync(index, text, limit: 3, minRelevanceScore: 0.3);
             string result = "";
             string information = "";
             await foreach (MemoryQueryResult memoryResult in memoryResults)
