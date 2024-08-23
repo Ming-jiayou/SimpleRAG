@@ -2,11 +2,11 @@
 
 # SimpleRAG
 
-## A simple RAG demo based on WPF and Semantic Kernel.
+## A simple RAG demo based on WPF and Semantic Kernel.✨
 
 SimpleRAG是基于WPF与Semantic Kernel实现的一个简单的RAG应用，可用于学习与理解如何使用Semantic Kernel构建RAG应用。
 
-## 主要功能
+## 主要功能✨
 
 ### AI聊天
 
@@ -30,7 +30,7 @@ SimpleRAG是基于WPF与Semantic Kernel实现的一个简单的RAG应用，可�
 
 ![image-20240819164322893](https://mingupupup.oss-cn-wuhan-lr.aliyuncs.com/imgs/image-20240819164322893.png)
 
-## 快速体验
+## 快速体验🚀
 
 来到SimpleRAG的GitHub参考，注意到这里有个Releases：
 
@@ -182,7 +182,7 @@ appsettings.json文件如下所示：
 
 [SemanticKernel/C#：检索增强生成(RAG)简易实践](https://mp.weixin.qq.com/s/0Q0vk9SPuH6k6AnMffp8Iw)
 
-## 从源码构建
+## 从源码构建🚀
 
 git clone到本地，打开appsettings.example.json文件：
 
@@ -234,11 +234,11 @@ IDE:VS2022
 
 ![image-20240819170128226](https://mingupupup.oss-cn-wuhan-lr.aliyuncs.com/imgs/image-20240819170128226.png)
 
-## 其他配置
+## 其他配置🚀
 
 您还可以自由的进行其他配置，比如使用Ollama中的对话模型与嵌入模型用于本地离线场景，配置其他的在线对话模型，使用本地Ollama中的嵌入模型等。
 
-## 最后
+## 最后✨
 
 如果对您有所帮助，点个star✨，就是最大的支持😊。
 

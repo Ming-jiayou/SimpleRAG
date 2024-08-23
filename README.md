@@ -2,11 +2,11 @@
 
 # SimpleRAG
 
-## A simple RAG demo based on WPF and Semantic Kernel.
+## A simple RAG demo based on WPF and Semantic Kernel.✨
 
 SimpleRAG is a basic RAG application based on WPF and Semantic Kernel, which can be used for learning and understanding how to build RAG applications using Semantic Kernel.
 
-## Primary functions
+## Primary functions✨
 
 ### AI Chatting
 
@@ -30,7 +30,7 @@ Compare answers without using RAG:
 
 ![image-20240819164322893](https://mingupupup.oss-cn-wuhan-lr.aliyuncs.com/imgs/image-20240819164322893.png)
 
-## Quick Start
+## Quick Start🚀
 
 Visited the SimpleRAG's GitHub reference and noticed there is a "Releases" section here:
 
@@ -182,7 +182,7 @@ The principles of implementation are introduced in this article of mine, and fri
 
 [SemanticKernel/C#：检索增强生成(RAG)简易实践](https://mp.weixin.qq.com/s/0Q0vk9SPuH6k6AnMffp8Iw)
 
-## Building from source code
+## Building from source code🚀
 
 Clone the repository to local, open the appsettings.example.json file:
 
@@ -234,11 +234,11 @@ Test RAG response:
 
 ![image-20240819170128226](https://mingupupup.oss-cn-wuhan-lr.aliyuncs.com/imgs/image-20240819170128226.png)
 
-## Other configurations
+## Other configurations🚀
 
 You can also freely make other configurations, such as using the dialogue and embedding models from Ollama for local offline scenarios, setting up other online dialogue models, and utilizing the embedding model from local Ollama.
 
-## Finally
+## Finally✨
 
 If it helps you, giving me a star✨ is the greatest support. 😊
 
