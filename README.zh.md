@@ -1,82 +1,82 @@
-[简体中文](./README.zh.md) | English
+简体中文|[English](./README.md) 
 
 # SimpleRAG
 
 ## A simple RAG demo based on WPF and Semantic Kernel.
 
-SimpleRAG is a basic RAG application based on WPF and Semantic Kernel, which can be used for learning and understanding how to build RAG applications using Semantic Kernel.
+SimpleRAG是基于WPF与Semantic Kernel实现的一个简单的RAG应用，可用于学习与理解如何使用Semantic Kernel构建RAG应用。
 
-## Primary functions
+## 主要功能
 
-### AI Chatting
+### AI聊天
 
-Support all large language models compatible with the OpenAI format:
+支持所有兼容OpenAI格式的大语言模型：
 
 ![image-20240819163701855](https://mingupupup.oss-cn-wuhan-lr.aliyuncs.com/imgs/image-20240819163701855.png)
 
-### Text Embedding
+### 文本嵌入
 
-Support all embedding models compatible with OpenAI formats:
+支持所有兼容OpenAI格式的嵌入模型：
 
 ![image-20240819163900106](https://mingupupup.oss-cn-wuhan-lr.aliyuncs.com/imgs/image-20240819163900106.png)
 
-### Simple RAG answer
+### 简单的RAG回答
 
-Simple RAG response effect:
+简单的RAG回答效果：
 
 ![image-20240819164221306](https://mingupupup.oss-cn-wuhan-lr.aliyuncs.com/imgs/image-20240819164221306.png)
 
-Compare answers without using RAG:
+对比不使用RAG的回答：
 
 ![image-20240819164322893](https://mingupupup.oss-cn-wuhan-lr.aliyuncs.com/imgs/image-20240819164322893.png)
 
-## Quick Start
+## 快速体验
 
-Visited the SimpleRAG's GitHub reference and noticed there is a "Releases" section here:
+来到SimpleRAG的GitHub参考，注意到这里有个Releases：
 
 ![image-20240822100649148](https://mingupupup.oss-cn-wuhan-lr.aliyuncs.com/imgs/image-20240822100649148.png)
 
-Clicking on SimpleRAG-v0.0.1, there are two zip files, one depends on the .NET 8.0-windows framework, and the other is standalone:
+点击SimpleRAG-v0.0.1，有两个压缩包，一个依赖net8.0-windows框架，一个独立：
 
 ![image-20240822100817138](https://mingupupup.oss-cn-wuhan-lr.aliyuncs.com/imgs/image-20240822100817138.png)
 
-The package that depends on the framework will be smaller, while the standalone package will be larger. If your computer has already installed the .NET 8.0-windows framework, you can choose the package that depends on the framework. Considering that most people may not have the .NET 8.0-windows framework installed, I will demonstrate with the standalone package. Click on the zip file, and it will start downloading:
+依赖框架的包会小一些，独立的包会大一些，如果你的电脑已经装了net8.0-windows框架可以选择依赖框架的包，考虑到可能大部分人不一定装了net8.0-windows框架，我以独立的包做演示，点击压缩包，就在下载了：
 
 ![image-20240822101244281](https://mingupupup.oss-cn-wuhan-lr.aliyuncs.com/imgs/image-20240822101244281.png)
 
-Decompress this compressed package:
+解压该压缩包：
 
 ![image-20240822101450182](https://mingupupup.oss-cn-wuhan-lr.aliyuncs.com/imgs/image-20240822101450182.png)
 
-Open the appsettings.json file:
+打开appsettings.json文件：
 
 ![image-20240822101600329](https://mingupupup.oss-cn-wuhan-lr.aliyuncs.com/imgs/image-20240822101600329.png)
 
-The appsettings.json file is as shown below:
+appsettings.json文件如下所示：
 
 ![image-20240822101740892](https://mingupupup.oss-cn-wuhan-lr.aliyuncs.com/imgs/image-20240822101740892.png)
 
-Defaults to using the SiliconCloud API,just enter your SiliconCloud API Key, and it will look like this upon completion:
+默认是使用SiliconCloud的api，只需填入你的SiliconCloud的Api Key即可，完成后，如下所示：
 
 ![image-20240822102046293](https://mingupupup.oss-cn-wuhan-lr.aliyuncs.com/imgs/image-20240822102046293.png)
 
-Click on SimpleRAG.exe now to run the program:
+现在点击SimpleRAG.exe即可运行程序：
 
 ![image-20240822102117959](https://mingupupup.oss-cn-wuhan-lr.aliyuncs.com/imgs/image-20240822102117959.png)
 
-After the program runs, it is as shown below:
+程序运行之后，如下所示：
 
 ![image-20240822102215516](https://mingupupup.oss-cn-wuhan-lr.aliyuncs.com/imgs/image-20240822102215516.png)
 
-First, test the configuration through AI chat:
+先通过AI聊天测试配置是否成功：
 
 ![image-20240822102306935](https://mingupupup.oss-cn-wuhan-lr.aliyuncs.com/imgs/image-20240822102306935.png)
 
-Configuration has been successful.
+配置已经成功。
 
-Now let's test the embedding.
+现在来测试一下嵌入。
 
-Let's start with a simple text for testing: 
+先拿一个简单的文本进行测试：
 
 ```csharp
 小n最喜欢吃的水果是西瓜。
@@ -84,29 +84,29 @@ Let's start with a simple text for testing:
 
 ![image-20240822102445438](https://mingupupup.oss-cn-wuhan-lr.aliyuncs.com/imgs/image-20240822102445438.png)
 
-Embedding successful:
+嵌入成功：
 
 ![image-20240822102504358](https://mingupupup.oss-cn-wuhan-lr.aliyuncs.com/imgs/image-20240822102504358.png)
 
-This demo program uses Sqlite database for convenient storage of text vectors, as can be seen here:
+这个Demo程序为了方便存储文本向量使用的是Sqlite数据库，在这里可以看到：
 
 ![image-20240822102554159](https://mingupupup.oss-cn-wuhan-lr.aliyuncs.com/imgs/image-20240822102554159.png)
 
-If you have a database management software, you would find that the text has been stored in the form of vectors in the Sqlite database.
+如果你有数据库管理软件的话，打开该数据库，会发现文本已经以向量的形式存入Sqlite数据库中：
 
 ![image-20240822102822026](https://mingupupup.oss-cn-wuhan-lr.aliyuncs.com/imgs/image-20240822102822026.png)
 
-Now begins the test of RAG's response effect: 
+现在开始测试RAG回答效果：
 
 ![image-20240822102901171](https://mingupupup.oss-cn-wuhan-lr.aliyuncs.com/imgs/image-20240822102901171.png)
 
-Compare the effectiveness of answers without using RAG:
+对比不使用RAG的回答效果：
 
 ![image-20240822102956395](https://mingupupup.oss-cn-wuhan-lr.aliyuncs.com/imgs/image-20240822102956395.png)
 
-It can be found that large language models have no knowledge of our private data that we want to inquire about, and there is a hallucination.
+可以发现大语言模型根本不知道我们想问的私有数据的事情，出现了幻觉。
 
-Now let's test a slightly more complex text: 
+现在我们可以来测试一下更复杂一点的文本了：
 
 ```csharp
 一夜之间，郑钦文的名字霸占了中国各大媒体的头条，不仅仅是体育板块。
@@ -164,84 +164,84 @@ Now let's test a slightly more complex text:
 “真的很希望网球文化可以在中国流行起来。”在世界各地感受过网球的氛围后，郑钦文期待有一天中国也会变成那样，“我希望未来有一天我们中国在网球这方面也能做到这样。”
 ```
 
-After the same text is embedded, test the effect of RAG:
+一样的嵌入文本之后，测试RAG效果：
 
 ![image-20240822103413583](https://mingupupup.oss-cn-wuhan-lr.aliyuncs.com/imgs/image-20240822103413583.png)
 
 ![image-20240822103533115](https://mingupupup.oss-cn-wuhan-lr.aliyuncs.com/imgs/image-20240822103533115.png)
 
-Compare the effectiveness of answers without using RAG: 
+对比不使用RAG的回答效果：
 
 ![image-20240822103631774](https://mingupupup.oss-cn-wuhan-lr.aliyuncs.com/imgs/image-20240822103631774.png)
 
-The knowledge of large language models is limited to the information used during training, and some recent content may not be known to the large language models.
+大语言模型的知识局限于训练时所用到的知识，一些最近的内容，大语言模型是不知道的。
 
-Above is a successful experience with SimpleRAG on SiliconCloud.
+以上就成功使用SiliconCloud体验了SimpleRAG。
 
-The principles of implementation are introduced in this article of mine, and friends who are interested can take a look:
+实现的原理，在我的这篇文章中有进行介绍，感兴趣的朋友可以看看：
 
 [SemanticKernel/C#：检索增强生成(RAG)简易实践](https://mp.weixin.qq.com/s/0Q0vk9SPuH6k6AnMffp8Iw)
 
-## Building from source code
+## 从源码构建
 
-Clone the repository to local, open the appsettings.example.json file:
+git clone到本地，打开appsettings.example.json文件：
 
 ![image-20240819164816557](https://mingupupup.oss-cn-wuhan-lr.aliyuncs.com/imgs/image-20240819164816557.png)
 
-The appsettings.example.json file is shown as follows:
+如下所示：
 
 ![image-20240819164844061](https://mingupupup.oss-cn-wuhan-lr.aliyuncs.com/imgs/image-20240819164844061.png)
 
-ChatAI is used for configuring conversation models, Embedding for configuring embedding models, and TextChunker for setting the document chunk size.
+ChatAI用于配置对话模型，Embedding用于配置嵌入模型，TextChunker用于配置文档切片大小。
 
-Taking SiliconCloud as an example, simply enter your API key and rename the file to appsettings.json, or create a new appsettings.json file.
+还是以SiliconCloud为例，只需填入你的api key 并将文件名改为appsettings.json，或者新建一个appsettings.json即可。
 
-The completed configuration would look like this:
+配置完成如下所示：
 
 ![image-20240819165255285](https://mingupupup.oss-cn-wuhan-lr.aliyuncs.com/imgs/image-20240819165255285.png)
 
-IDE: VS2022
+IDE:VS2022 
 
-.NET Version: .NET 8
+.NET 版本：.NET 8
 
-Open the solution, and the project structure is as shown below:
+打开解决方案，项目结构如下所示：
 
 ![image-20240819165459846](https://mingupupup.oss-cn-wuhan-lr.aliyuncs.com/imgs/image-20240819165459846.png)
 
 
 
-Run the program: 
+运行程序：
 
 ![image-20240819165551772](https://mingupupup.oss-cn-wuhan-lr.aliyuncs.com/imgs/image-20240819165551772.png)
 
-Test AI chat:
+测试AI聊天：
 
 ![image-20240819165652624](https://mingupupup.oss-cn-wuhan-lr.aliyuncs.com/imgs/image-20240819165652624.png)
 
-Test embedding: 
+测试嵌入：
 
 ![image-20240819165803024](https://mingupupup.oss-cn-wuhan-lr.aliyuncs.com/imgs/image-20240819165803024.png)
 
-Using Sqlite to save vectors, you can find this database in the Debug folder:
+使用的是Sqlite保存向量，可以在Debug文件夹下找到这个数据库：
 
 ![image-20240819165854807](https://mingupupup.oss-cn-wuhan-lr.aliyuncs.com/imgs/image-20240819165854807.png)
 
-Open the database as follows:
+打开该数据库，如下所示：
 
 ![image-20240819170059576](https://mingupupup.oss-cn-wuhan-lr.aliyuncs.com/imgs/image-20240819170059576.png)
 
-Test RAG response: 
+测试RAG回答：
 
 ![image-20240819170128226](https://mingupupup.oss-cn-wuhan-lr.aliyuncs.com/imgs/image-20240819170128226.png)
 
-## Other configurations
+## 其他配置
 
-You can also freely make other configurations, such as using the dialogue and embedding models from Ollama for local offline scenarios, setting up other online dialogue models, and utilizing the embedding model from local Ollama.
+您还可以自由的进行其他配置，比如使用Ollama中的对话模型与嵌入模型用于本地离线场景，配置其他的在线对话模型，使用本地Ollama中的嵌入模型等。
 
-## Finally
+## 最后
 
-If it helps you, giving me a star✨ is the greatest support. 😊
+如果对您有所帮助，点个star✨，就是最大的支持😊。
 
-If you still encounter issues after reading this guide, feel free to contact me through the public account:
+如果您看了这个指南，还是遇到了问题，欢迎通过公众号联系我：
 
 ![qrcode_for_gh_eb0908859e11_344](https://mingupupup.oss-cn-wuhan-lr.aliyuncs.com/imgs/qrcode_for_gh_eb0908859e11_344.jpg)
