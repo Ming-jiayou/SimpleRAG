@@ -22,6 +22,12 @@ namespace SimpleRAG.ViewModels.Windows
                 Content = "AI Embedding",
                 Icon = new SymbolIcon { Symbol = SymbolRegular.DataHistogram24 },
                 TargetPageType = typeof(Views.Pages.AIEmbedding)
+            },
+               new NavigationViewItem()
+            {
+                Content = "Function Calling",
+                Icon = new SymbolIcon { Symbol = SymbolRegular.WindowDevTools24 },
+                TargetPageType = typeof(Views.Pages.FunctionCalling)
             }
         };
 

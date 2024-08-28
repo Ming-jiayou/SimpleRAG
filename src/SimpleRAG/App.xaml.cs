@@ -55,6 +55,8 @@ namespace SimpleRAG
                 services.AddSingleton<AIChatViewModel>();
                 services.AddSingleton<AIEmbedding>();
                 services.AddSingleton<AIEmbeddingViewModel>();
+                services.AddSingleton<FunctionCalling>();
+                services.AddSingleton<FunctionCallingViewModel>();
 
                 services.AddScoped<HttpClient>();
 
