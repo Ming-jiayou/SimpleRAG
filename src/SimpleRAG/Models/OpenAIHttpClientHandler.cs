@@ -23,18 +23,57 @@ namespace SimpleRAG.Models
             string scheme2 = uri2.Scheme;
             string host2 = uri2.Host;
             int port2 = uri2.Port;
+            string platform = ChatAIOption.Platform;
             switch (request.RequestUri?.LocalPath)
             {
                 case "/v1/chat/completions":
-                    uriBuilder = new UriBuilder(request.RequestUri)
+                    switch (platform)
                     {
-                        // 这里是你要修改的 URL
-                        Scheme = scheme1,
-                        Host = host1,
-                        Port = port1,
-                        Path = "v1/chat/completions",
-                    };
-                    request.RequestUri = uriBuilder.Uri;
+                        case "ZhiPu":
+                            uriBuilder = new UriBuilder(request.RequestUri)
+                            {
+                                // 这里是你要修改的 URL
+                                Scheme = scheme1,
+                                Host = host1,
+                                Port = port1,
+                                Path = "api/paas/v4/chat/completions",
+                            };
+                            request.RequestUri = uriBuilder.Uri;
+                            break;
+                        case "TaiChu":
+                            uriBuilder = new UriBuilder(request.RequestUri)
+                            {
+                                // 这里是你要修改的 URL
+                                Scheme = scheme1,
+                                Host = host1,
+                                Port = port1,
+                                Path = "maas/v1/chat/completions",
+                            };
+                            request.RequestUri = uriBuilder.Uri;
+                            break;
+                        case "DashScope":
+                            uriBuilder = new UriBuilder(request.RequestUri)
+                            {
+                                // 这里是你要修改的 URL
+                                Scheme = scheme1,
+                                Host = host1,
+                                Port = port1,
+                                Path = "compatible-mode/v1/chat/completions",
+                            };
+                            request.RequestUri = uriBuilder.Uri;
+                            break;
+                        default:
+                            uriBuilder = new UriBuilder(request.RequestUri)
+                            {
+                                // 这里是你要修改的 URL
+                                Scheme = scheme1,
+                                Host = host1,
+                                Port = port1,
+                                Path = "v1/chat/completions",
+                            };
+                            request.RequestUri = uriBuilder.Uri;
+                            break;
+                    }
                     break;
 
                 case "/v1/embeddings":
