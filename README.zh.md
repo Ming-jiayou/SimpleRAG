@@ -30,7 +30,7 @@ SimpleRAG是基于WPF与Semantic Kernel实现的一个简单的RAG应用，可�
 
 ![image-20240819164322893](https://mingupupup.oss-cn-wuhan-lr.aliyuncs.com/imgs/image-20240819164322893.png)
 
-## 测试Function Calling
+### 测试Function Calling
 
 测试Function Calling回答效果：
 

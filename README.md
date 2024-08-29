@@ -30,6 +30,32 @@ Compare answers without using RAG:
 
 ![image-20240819164322893](https://mingupupup.oss-cn-wuhan-lr.aliyuncs.com/imgs/image-20240819164322893.png)
 
+### Test Function Calling
+
+Test Function Calling response effectiveness:
+
+![](https://mingupupup.oss-cn-wuhan-lr.aliyuncs.com/imgs/image-20240828162408978.png)
+
+Compare the effects of not using FunctionCalling:
+
+![image-20240828162455519](https://mingupupup.oss-cn-wuhan-lr.aliyuncs.com/imgs/image-20240828162455519.png)
+
+This method has been tested and is available for LLMs:
+
+| 平台       | 可用模型                                                     |
+| ---------- | ------------------------------------------------------------ |
+| 硅基流动   | Llama-3.1-405/70/8B、Llama-3-70/8B-Instruct、DeepSeek-V2-Chat、deepseek-llm-67b-chat、Qwen2-72/57/7/1.5B-Instruct、Qwen2-57B-A14B-Instruct、Qwen1.5-110/32/14B-Chat、Qwen2-Math-72B-Instruct、Yi-1.5-34/9/6B-Chat-16K、internlm2_5-20/7b-chat |
+| 讯飞星火   | Spark Lite、Spark Pro-128K、Spark Max、Spark4.0 Ultra        |
+| 零一万物   | yi-large、yi-medium、yi-spark、yi-large-rag、yi-large-fc、yi-large-turbo |
+| 月之暗面   | moonshot-v1-8k、moonshot-v1-32k、moonshot-v1-128k            |
+| 智谱AI     | glm-4-0520、glm-4、glm-4-air、glm-4-airx、glm-4-flash、glm-4v、glm-3-turbo |
+| DeepSeek   | deepseek-chat、deepseek-coder                                |
+| 阶跃星辰   | step-1-8k、step-1-32k、step-1-128k、step-2-16k-nightly、step-1-flash |
+| Minimax    | abab6.5s-chat、abab5.5-chat                                  |
+| 阿里云百炼 | qwen-max、qwen2-math-72b-instruct、qwen-max-0428、qwen2-72b-instruct、qwen2-57b-a14b-instruct、qwen2-7b-instruct |
+
+The above may not be comprehensive, and there are still some models that have not been tested. Everyone is welcome to continue to supplement.
+
 ## Quick Start🚀
 
 Visited the SimpleRAG's GitHub reference and noticed there is a "Releases" section here:
