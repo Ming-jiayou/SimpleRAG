@@ -11,6 +11,7 @@ using Microsoft.SemanticKernel.Memory;
 using Microsoft.SemanticKernel.Connectors.OpenAI;
 using System.Reflection;
 using Microsoft.SemanticKernel.ChatCompletion;
+using System.IO;
 namespace SimpleRAG.Services
 {
 #pragma warning disable SKEXP0050
@@ -131,6 +132,45 @@ namespace SimpleRAG.Services
                  }, "GetProductById", "根据id获取订单。"),
             ]);
          
+            ChatHistory history = new ChatHistory();
+            history.AddUserMessage(askText);
+            UniversalLLMFunctionCaller planner = new(kernel);
+            string result = await planner.RunAsync(askText);
+
+            history.AddAssistantMessage(result);
+            return result;
+        }
+
+        public async Task<string> RunTranslationAIAgentSampleAsync(string askText)
+        {
+            var handler = new OpenAIHttpClientHandler();
+            var builder = Kernel.CreateBuilder()
+            .AddOpenAIChatCompletion(
+               modelId: ChatAIOption.ChatModel,
+               apiKey: ChatAIOption.Key,
+               httpClient: new HttpClient(handler));
+            var kernel = builder.Build();
+
+            // Add a plugin with some helper functions we want to allow the model to utilize.
+            kernel.ImportPluginFromFunctions("HelperFunctions",
+             [
+                kernel.CreateFunctionFromMethod((string text,string filePath) =>
+                {
+                    // 指定文件的路径
+                    //string filePath = @"D:\桌面\test.txt";
+
+                    // 使用 StreamWriter 将文本写入文件
+                    using (StreamWriter writer = new StreamWriter(filePath,true))
+                    {
+                           writer.WriteLine(text);
+                    }
+                    return "已成功写入文件";
+
+                }, "SaveTextToTxt", "将文本写入文件")
+            ]);
+
+            kernel.Plugins.AddFromType<Translation>();
+
             ChatHistory history = new ChatHistory();
             history.AddUserMessage(askText);
             UniversalLLMFunctionCaller planner = new(kernel);

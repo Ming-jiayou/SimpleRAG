@@ -57,6 +57,8 @@ namespace SimpleRAG
                 services.AddSingleton<AIEmbeddingViewModel>();
                 services.AddSingleton<FunctionCalling>();
                 services.AddSingleton<FunctionCallingViewModel>();
+                services.AddSingleton<TranslationAIAgent>();
+                services.AddSingleton<TranslationAIAgentViewModel>();
 
                 services.AddScoped<HttpClient>();
 

@@ -14,5 +14,6 @@ namespace SimpleRAG.Interface
         public Task Embedding(QueryModel queryModel);
         public Task<Query> GetRAGResponse(QueryModel queryModel);
         public Task<string> RunUniversalLLMFunctionCallerSampleAsync(string askText);
+        public Task<string> RunTranslationAIAgentSampleAsync(string askText);
     }
 }

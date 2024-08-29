@@ -28,6 +28,12 @@ namespace SimpleRAG.ViewModels.Windows
                 Content = "Function Calling",
                 Icon = new SymbolIcon { Symbol = SymbolRegular.WindowDevTools24 },
                 TargetPageType = typeof(Views.Pages.FunctionCalling)
+            },
+                 new NavigationViewItem()
+            {
+                Content = "Translation AI Agent",
+                Icon = new SymbolIcon { Symbol = SymbolRegular.TextProofingTools24 },
+                TargetPageType = typeof(Views.Pages.TranslationAIAgent)
             }
         };
 
