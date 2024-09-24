@@ -12,6 +12,7 @@ using Microsoft.SemanticKernel.Connectors.OpenAI;
 using System.Reflection;
 using Microsoft.SemanticKernel.ChatCompletion;
 using System.IO;
+using System.Diagnostics;
 namespace SimpleRAG.Services
 {
 #pragma warning disable SKEXP0050
@@ -41,6 +42,19 @@ namespace SimpleRAG.Services
             var str = result.ToString();
             query.Answer = str;
             return query;
+        }
+
+        public async IAsyncEnumerable<string> GetAIResponse2(string question)
+        {
+            var query = new Query { Question = question };
+            await foreach (var str in _kernel.InvokePromptStreamingAsync(question))
+            {
+                yield return str.ToString();
+            }
+            //var result = await _kernel.InvokePromptStreamingAsync(question);
+            //var str = result.ToString();
+            //query.Answer = "nihao";
+            //return query;
         }
 
         public async Task Embedding(QueryModel queryModel)
@@ -75,7 +89,7 @@ namespace SimpleRAG.Services
                                根据获取到的信息回答问题：{{$Question}}。
                                如果没有获取到相关信息，直接回答不知道。
                             """;
-            var response = await _kernel.InvokePromptAsync(skPrompt, new() { ["Information"] = information, ["Question"] = queryModel.Text });
+            var response = await _kernel.InvokePromptAsync(skPrompt, new() { ["Information"] = information, ["Question"] = queryModel.Text });           
             result = response.ToString();
             var query = new Query { Question = text, Answer = result };
             return query;

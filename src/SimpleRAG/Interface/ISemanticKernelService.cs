@@ -13,6 +13,7 @@ namespace SimpleRAG.Interface
         public Task<Query> GetAIResponse(string question);
         public Task Embedding(QueryModel queryModel);
         public Task<Query> GetRAGResponse(QueryModel queryModel);
+        public IAsyncEnumerable<string> GetAIResponse2(string question);
         public Task<string> RunUniversalLLMFunctionCallerSampleAsync(string askText);
         public Task<string> RunTranslationAIAgentSampleAsync(string askText);
     }
