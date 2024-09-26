@@ -34,6 +34,12 @@ namespace SimpleRAG.ViewModels.Windows
                 Content = "Translation AI Agent",
                 Icon = new SymbolIcon { Symbol = SymbolRegular.TextProofingTools24 },
                 TargetPageType = typeof(Views.Pages.TranslationAIAgent)
+            },
+                     new NavigationViewItem()
+            {
+                Content = "AI File Chat",
+                Icon = new SymbolIcon { Symbol = SymbolRegular.Folder24 },
+                TargetPageType = typeof(Views.Pages.AIFileChat)
             }
         };
 

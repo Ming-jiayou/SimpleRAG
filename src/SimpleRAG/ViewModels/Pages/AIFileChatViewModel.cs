@@ -1,16 +1,17 @@
-﻿using System;
+﻿using SimpleRAG.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SimpleRAG.Interface;
+using Microsoft.Win32;
 
 namespace SimpleRAG.ViewModels.Pages
 {
-    public partial class AIChatViewModel : ObservableObject
+    public partial class AIFileChatViewModel : ObservableObject
     {
         private readonly ISemanticKernelService _semanticKernelService;
-        public AIChatViewModel(ISemanticKernelService semanticKernelService)
+        public AIFileChatViewModel(ISemanticKernelService semanticKernelService)
         {
             _semanticKernelService = semanticKernelService;
         }
@@ -22,7 +23,26 @@ namespace SimpleRAG.ViewModels.Pages
         private string responseText = "";
 
         [ObservableProperty]
+        private string selectedFile = "";
+
+        [ObservableProperty]
         private Visibility progressRingVisible = Visibility.Hidden;
+
+        [RelayCommand]
+        private void ChooseFile()
+        {
+            var openFileDialog = new OpenFileDialog
+            {
+                Title = "选择文件",
+                Filter = "所有文件|*.*",
+                Multiselect = false,
+            };
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                SelectedFile = openFileDialog.FileName;
+            }
+        }
 
         [RelayCommand]
         private async Task AskAI()
@@ -33,8 +53,8 @@ namespace SimpleRAG.ViewModels.Pages
             }
             if (AskText != "")
             {
-                ProgressRingVisible = Visibility.Visible;              
-                await foreach (var chunk in _semanticKernelService.GetAIResponse2(AskText))
+                ProgressRingVisible = Visibility.Visible;
+                await foreach (var chunk in _semanticKernelService.GetAIResponse3(AskText,SelectedFile))
                 {
                     ResponseText += chunk;
                 }
@@ -51,7 +71,6 @@ namespace SimpleRAG.ViewModels.Pages
 
                 _ = await uiMessageBox.ShowDialogAsync();
             }
-
         }
     }
 }

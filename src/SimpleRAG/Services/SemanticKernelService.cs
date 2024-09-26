@@ -13,6 +13,7 @@ using System.Reflection;
 using Microsoft.SemanticKernel.ChatCompletion;
 using System.IO;
 using System.Diagnostics;
+using Microsoft.VisualBasic;
 namespace SimpleRAG.Services
 {
 #pragma warning disable SKEXP0050
@@ -50,11 +51,21 @@ namespace SimpleRAG.Services
             await foreach (var str in _kernel.InvokePromptStreamingAsync(question))
             {
                 yield return str.ToString();
+            }          
+        }
+
+        public async IAsyncEnumerable<string> GetAIResponse3(string question,string filePath)
+        {
+            string fileContent = File.ReadAllText(filePath);
+            string skPrompt = """
+                               获取到的文件内容：{{$FileContent}}。
+                               根据获取到的信息回答问题：{{$Question}}。
+                               如果文件内容中没有提到，直接回答不知道。
+                            """;
+            await foreach (var str in _kernel.InvokePromptStreamingAsync(skPrompt, new() { ["FileContent"] = fileContent, ["Question"] = question }))
+            {
+                yield return str.ToString();
             }
-            //var result = await _kernel.InvokePromptStreamingAsync(question);
-            //var str = result.ToString();
-            //query.Answer = "nihao";
-            //return query;
         }
 
         public async Task Embedding(QueryModel queryModel)
