@@ -68,6 +68,49 @@ namespace SimpleRAG.Services
             }
         }
 
+        public async IAsyncEnumerable<string> GetAIResponse4(string question, string imagePath)
+        {
+            string pythonScriptPath = @"D:\学习路线\人工智能\图片文字识别\test.py"; // 替换为你的Python脚本路径
+            string pythonExecutablePath = @"D:\SoftWare\Anaconda\envs\paddle_env\python.exe"; // 替换为你的Python解释器路径                                                                                         
+            string arguments = imagePath; // 替换为你要传递的参数
+
+            ProcessStartInfo start = new ProcessStartInfo();
+            start.FileName = pythonExecutablePath;
+            start.Arguments = $"{pythonScriptPath} {arguments}";
+            start.UseShellExecute = false;
+            start.RedirectStandardOutput = true;
+            start.RedirectStandardError = true;
+            start.CreateNoWindow = true;
+
+            string result = "";
+
+            using (Process process = Process.Start(start))
+            {
+                using (System.IO.StreamReader reader = process.StandardOutput)
+                {
+                    result = reader.ReadToEnd();                   
+                }
+
+                using (System.IO.StreamReader errorReader = process.StandardError)
+                {
+                    string errors = errorReader.ReadToEnd();
+                    if (!string.IsNullOrEmpty(errors))
+                    {
+                        MessageBox.Show("Errors: " + errors);
+                    }
+                }
+            }
+
+            string skPrompt = """
+                               获取到的图片内容：{{$PictureContent}}。
+                               根据获取到的信息回答问题：{{$Question}}。                       
+                            """;
+            await foreach (var str in _kernel.InvokePromptStreamingAsync(skPrompt, new() { ["PictureContent"] = result, ["Question"] = question }))
+            {
+                yield return str.ToString();
+            }
+        }
+
         public async Task Embedding(QueryModel queryModel)
         {           
             var textMemory = await GetTextMemory();

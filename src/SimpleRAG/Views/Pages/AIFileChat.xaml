@@ -12,9 +12,11 @@
     <StackPanel>
         <StackPanel Orientation="Horizontal">
             <Button Content="选择文件" Margin="10"
-        Command="{Binding ViewModel.ChooseFileCommand}"></Button>
+              Command="{Binding ViewModel.ChooseFileCommand}"></Button>
             <Label HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"
                    Content="{Binding ViewModel.SelectedFile}"/>
+            <!--<Button Content="执行Python脚本" Margin="10"
+                     Command="{Binding ViewModel.RunPythonScriptCommand}"></Button>-->
         </StackPanel>
         <StackPanel>
             <Grid>
@@ -29,6 +31,9 @@
                         <StackPanel Orientation="Horizontal">
                             <Button Content="问AI" Margin="10"
 					                Command="{Binding ViewModel.AskAICommand}"></Button>
+                            <RadioButton Content="文本" IsChecked="{Binding ViewModel.TextChecked}"/>
+                            <RadioButton Content="文件" IsChecked="{Binding ViewModel.FileChecked}"/>
+                            <RadioButton Content="图片" IsChecked="{Binding ViewModel.PictureChecked}"/>
                         </StackPanel>
                         <TextBox Height="300" Margin="10"
 					 Text="{Binding ViewModel.AskText}"

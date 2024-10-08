@@ -15,6 +15,7 @@ namespace SimpleRAG.Interface
         public Task<Query> GetRAGResponse(QueryModel queryModel);
         public IAsyncEnumerable<string> GetAIResponse2(string question);
         public IAsyncEnumerable<string> GetAIResponse3(string question, string filePath);
+        public IAsyncEnumerable<string> GetAIResponse4(string question, string imagePath);
         public Task<string> RunUniversalLLMFunctionCallerSampleAsync(string askText);
         public Task<string> RunTranslationAIAgentSampleAsync(string askText);
     }
